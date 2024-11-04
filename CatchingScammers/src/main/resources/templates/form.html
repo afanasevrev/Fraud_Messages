@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Форма ввода текста и проверки на фрод</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        .container {
+            width: 350px;
+            margin: auto;
+            padding: 20px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        textarea {
+            width: calc(100% - 20px);
+            height: 150px;
+            padding: 10px;
+            margin: 5px 0;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            box-sizing: border-box;
+            transition: border-color 0.3s;
+            resize: vertical; /* позволяет пользователю изменять размер по вертикали */
+        }
+
+        textarea:focus {
+            border-color: #4c9aff;
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            background-color: #4c9aff;
+            border: none;
+            border-radius: 6px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #357abd;
+        }
+
+        #status {
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            display: none;
+            background-color: #e3e7ed;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <form th:action="@{/submit}" method="post" id="myForm">
+        <textarea id="userInput" name="userInput" placeholder="Введите текст" required></textarea>
+        <button type="submit">Отправить</button>
+    </form>
+    <div id="status"></div>
+</div>
+<script>
+    document.getElementById('myForm').onsubmit = function(event) {
+        event.preventDefault();
+        var input = document.getElementById('userInput').value;
+        var statusDiv = document.getElementById('status');
+        statusDiv.style.display = 'block';
+        statusDiv.innerText = 'Отправка...';
+
+        // Выполнение асинхронного запроса к серверу
+        fetch('/submit', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({ userInput: input })
+        })
+        .then(response => response.json()) // Преобразование ответа в JSON
+        .then(data => {
+            // Обработка ответа от сервера
+            if (data.success) {
+                statusDiv.innerText = 'Данные успешно отправлены: ' + data.message;
+            } else {
+                statusDiv.innerText = 'Ошибка: ' + data.error;
+            }
+        })
+        .catch(error => {
+            // Обработка ошибки запроса
+            statusDiv.innerText = 'Произошла ошибка: ' + error.message;
+        });
+    };
+</script>
+
+</body>
+</html>
