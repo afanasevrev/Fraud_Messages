@@ -1,14 +1,11 @@
 package com.example.CatchingScammers;
-import java.util.ArrayList;
-import java.util.List;
-import smile.classification.LogisticRegression;
-import smile.data.vector.DoubleVector;
-import smile.math.MathEx;
-import smile.nlp.SimpleCorpus;
-//import smile.nlp.dictionary.SimpleStopwords;
 import smile.nlp.tokenizer.SimpleTokenizer;
-//import smile.nlp.transform.TfIdfVectorizer;
-//import smile.nlp.transform.TextTransform;
+import smile.nlp.stemmer.PorterStemmer;
+import smile.nlp.normalizer.SimpleNormalizer;
+//import smile.nlp.stopwords.EnglishStopwords;
+import java.util.Arrays;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class FraudDetectionExample {
 

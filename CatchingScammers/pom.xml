@@ -62,7 +62,7 @@
 		<dependency>
 			<groupId>com.github.haifengl</groupId>
 			<artifactId>smile-nlp</artifactId>
-			<version>3.1.1</version>
+			<version>2.6.0</version>
 		</dependency>
 		<!-- https://mvnrepository.com/artifact/com.github.haifengl/smile-math -->
 		<dependency>
@@ -80,7 +80,7 @@
 		<dependency>
 			<groupId>com.github.haifengl</groupId>
 			<artifactId>smile-core</artifactId>
-			<version>3.1.1</version>
+			<version>2.6.0</version>
 		</dependency>
 	</dependencies>
 	<build>
