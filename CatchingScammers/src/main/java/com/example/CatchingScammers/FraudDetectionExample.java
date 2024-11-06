@@ -9,7 +9,11 @@ import java.util.stream.Collectors;
 
 public class FraudDetectionExample {
     public static void main(String[] args) {
-        String text = "This is an example sentence showing the functionality of SMILE NLP package.";
+        String text = "Уважаемый клиент," +
+                "мы обнаружили подозрительную активность на вашем банковском счете. " +
+                "Для защиты вашего аккаунта, пожалуйста, перейдите по следующей " +
+                "ссылке и подтвердите свои учетные данные." +
+                "Если вы не выполните эту проверку, ваш счет будет заморожен.";
 
         // Токенизация
         SimpleTokenizer tokenizer = new SimpleTokenizer();
