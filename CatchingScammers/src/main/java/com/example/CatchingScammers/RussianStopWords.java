@@ -2,17 +2,18 @@ package com.example.CatchingScammers;
 
 import smile.nlp.dictionary.StopWords;
 import java.io.BufferedReader;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.HashSet;
 import java.util.Iterator;
 
 public enum RussianStopWords implements StopWords {
-    DEFAULT("stop_words_ru.txt");
+    DEFAULT("src/main/resources/static/stop_words_ru.txt");
     private HashSet<String> dict = new HashSet();
     private RussianStopWords(String resource) {
         try {
-            BufferedReader input = new BufferedReader(new InputStreamReader(this.getClass().getResourceAsStream(resource)));
+            BufferedReader input = new BufferedReader(new InputStreamReader(new FileInputStream(resource)));
             Throwable var5 = null;
             try {
                 String line = null;
