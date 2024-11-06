@@ -8,12 +8,11 @@ import java.util.HashSet;
 import java.util.Iterator;
 
 public enum RussianStopWords implements StopWords {
-    DEFAULT("stop_words_ru");
+    DEFAULT("stop_words_ru.txt");
     private HashSet<String> dict = new HashSet();
     private RussianStopWords(String resource) {
         try {
             BufferedReader input = new BufferedReader(new InputStreamReader(this.getClass().getResourceAsStream(resource)));
-            System.out.println(input.readLine());
             Throwable var5 = null;
             try {
                 String line = null;
