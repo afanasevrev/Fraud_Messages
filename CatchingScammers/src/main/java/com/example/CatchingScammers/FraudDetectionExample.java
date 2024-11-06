@@ -14,7 +14,6 @@ public class FraudDetectionExample {
                 "Для защиты вашего аккаунта, пожалуйста, перейдите по следующей " +
                 "ссылке и подтвердите свои учетные данные." +
                 "Если вы не выполните эту проверку, ваш счет будет заморожен.";
-
         // Токенизация
         SimpleTokenizer tokenizer = new SimpleTokenizer();
         String[] tokens = tokenizer.split(text);
@@ -22,7 +21,7 @@ public class FraudDetectionExample {
 
         // Удаление стоп-слов
         List<String> filteredTokens = Arrays.stream(tokens)
-                .filter(token -> !EnglishStopWords.DEFAULT.contains(token.toLowerCase()))
+                .filter(token -> !RussianStopWords.DEFAULT.contains(token.toLowerCase()))
                 .collect(Collectors.toList());
 
         System.out.println("Filtered Tokens: " + filteredTokens);
