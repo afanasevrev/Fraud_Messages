@@ -1,8 +1,6 @@
 package com.example.CatchingScammers;
 import smile.nlp.tokenizer.SimpleTokenizer;
 import smile.nlp.stemmer.PorterStemmer;
-import smile.nlp.normalizer.SimpleNormalizer;
-import smile.nlp.dictionary.EnglishStopWords;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
