@@ -11,7 +11,7 @@ import java.io.IOException;
 import java.nio.charset.StandardCharsets;
 
 public class FraudDetector {
-    private static final String resource = "src/main/resources/static/model1.txt";
+    private static final String resource = "src/main/resources/static/model.txt";
     public static void main(String[] args) {
         try {
             // Укажите путь к вашему тренировочному файлу с данными на русском языке
