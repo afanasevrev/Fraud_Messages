@@ -37,10 +37,10 @@ public class FraudDetector {
 
             DocumentCategorizerME categorizer = new DocumentCategorizerME(model);
 
-            String message = "Сообщите нам код Вашей карты";
+            String message = "Спасибо, Вы успешно сдали тест";
             String[] message1 = message.split(" ");
-            System.out.println(message1.length);
             double[] outcomes = categorizer.categorize(message1);
+            System.out.println(outcomes[1]);
             String category = categorizer.getBestCategory(outcomes);
             System.out.println("Категория сообщения: " + category);
         } catch (IOException e) {
