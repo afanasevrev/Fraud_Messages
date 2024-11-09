@@ -37,7 +37,7 @@ public class FraudDetector {
 
             DocumentCategorizerME categorizer = new DocumentCategorizerME(model);
 
-            String message = "Спам сообщение";
+            String message = "Завтра в 8:00 собираемся в холле университета";
             String[] message1 = message.split(" ");
             double[] outcomes = categorizer.categorize(message1);
             System.out.println(outcomes.length);
