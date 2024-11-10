@@ -14,7 +14,8 @@ import java.nio.charset.StandardCharsets;
  */
 public class FraudDetector {
     private static final String resource = "src/main/resources/static/model.txt";
-    public static void main(String[] args) {
+    public static DoccatModel model;
+    public void detector() {
         try {
             InputStreamFactory dataIn = new InputStreamFactory() {
                 @Override
@@ -25,7 +26,8 @@ public class FraudDetector {
             ObjectStream<String> lineStream = new PlainTextByLineStream(dataIn, StandardCharsets.UTF_8);
             ObjectStream<DocumentSample> sampleStream = new DocumentSampleStream(lineStream);
 
-            DoccatModel model;
+            //DoccatModel model;
+
             try {
                 TrainingParameters params = new TrainingParameters();
                 params.put(TrainingParameters.ITERATIONS_PARAM, 100);
@@ -36,7 +38,7 @@ public class FraudDetector {
             } finally {
                 sampleStream.close();
             }
-
+            /**
             DocumentCategorizerME categorizer = new DocumentCategorizerME(model);
 
             String message = "Завтра в 8:00 собираемся в холле университета";
@@ -45,6 +47,7 @@ public class FraudDetector {
             System.out.println(outcomes.length);
             String category = categorizer.getBestCategory(outcomes);
             System.out.println("Категория сообщения: " + category);
+             **/
         } catch (IOException e) {
             e.printStackTrace();
         }
