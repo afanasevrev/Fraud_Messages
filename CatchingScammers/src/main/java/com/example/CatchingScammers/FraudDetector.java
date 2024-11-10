@@ -35,6 +35,7 @@ public class FraudDetector {
                 NaiveBayesTrainer trainer = new NaiveBayesTrainer();
                 DoccatFactory factory = new DoccatFactory();
                 model = DocumentCategorizerME.train("ru", sampleStream, params, factory);
+                System.out.println("The training of the model was successful");
             } finally {
                 sampleStream.close();
             }
