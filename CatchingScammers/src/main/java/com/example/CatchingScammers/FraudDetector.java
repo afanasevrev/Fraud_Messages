@@ -39,16 +39,6 @@ public class FraudDetector {
             } finally {
                 sampleStream.close();
             }
-            /**
-            DocumentCategorizerME categorizer = new DocumentCategorizerME(model);
-
-            String message = "Завтра в 8:00 собираемся в холле университета";
-            String[] message1 = message.split(" ");
-            double[] outcomes = categorizer.categorize(message1);
-            System.out.println(outcomes.length);
-            String category = categorizer.getBestCategory(outcomes);
-            System.out.println("Категория сообщения: " + category);
-             **/
         } catch (IOException e) {
             e.printStackTrace();
         }
