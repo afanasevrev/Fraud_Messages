@@ -9,7 +9,9 @@ import opennlp.tools.util.TrainingParameters;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
-
+/**
+ * Класс обучает модель и выдает предсказание на основе Байесовского алгоритма
+ */
 public class FraudDetector {
     private static final String resource = "src/main/resources/static/model.txt";
     public static void main(String[] args) {
