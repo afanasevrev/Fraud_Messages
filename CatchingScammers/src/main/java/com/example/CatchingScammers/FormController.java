@@ -14,8 +14,10 @@ public class FormController {
         String[] message = userInput.split(" ");
         double[] outcomes = categorizer.categorize(message);
         String category = categorizer.getBestCategory(outcomes);
+        String text = "Не мошенники";
+        if (category.equals("fraud")) text = "Мошенники";
         try {
-            return category;
+            return text;
         } catch(Exception e) {
             return "Ошибка при обработке данных";
         }
