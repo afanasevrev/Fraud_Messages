@@ -13,8 +13,7 @@ import java.nio.charset.StandardCharsets;
  * Класс обучает модель и выдает предсказание на основе Байесовского алгоритма
  */
 public class FraudDetector {
-    //private static final String resource = "src/main/resources/static/model.txt";
-    private static final String resource = "model.txt";
+    private static final String resource = "src/main/resources/static/model.txt";
     public static DoccatModel model;
     public void detector() {
         InputStream inputStream = FraudDetector.class.getResourceAsStream(resource);
