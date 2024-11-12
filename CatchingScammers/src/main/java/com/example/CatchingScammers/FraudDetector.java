@@ -6,16 +6,18 @@ import opennlp.tools.util.InputStreamFactory;
 import opennlp.tools.util.ObjectStream;
 import opennlp.tools.util.PlainTextByLineStream;
 import opennlp.tools.util.TrainingParameters;
-import java.io.FileInputStream;
-import java.io.IOException;
+
+import java.io.*;
 import java.nio.charset.StandardCharsets;
 /**
  * Класс обучает модель и выдает предсказание на основе Байесовского алгоритма
  */
 public class FraudDetector {
-    private static final String resource = "src/main/resources/static/model.txt";
+    //private static final String resource = "src/main/resources/static/model.txt";
+    private static final String resource = "model.txt";
     public static DoccatModel model;
     public void detector() {
+        InputStream inputStream = FraudDetector.class.getResourceAsStream(resource);
         try {
             InputStreamFactory dataIn = new InputStreamFactory() {
                 @Override
