@@ -18,7 +18,6 @@ public class FraudDetector {
             if (inputStream == null) {
                 throw new FileNotFoundException("Resource not found: " + resource);
             }
-            // Используйте InputStream вместо FileInputStream напрямую
             ObjectStream<String> lineStream = new PlainTextByLineStream(new InputStreamFactory() {
                 @Override
                 public InputStream createInputStream() throws IOException {
