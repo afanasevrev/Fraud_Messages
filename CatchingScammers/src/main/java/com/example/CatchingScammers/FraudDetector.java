@@ -8,12 +8,8 @@ import opennlp.tools.util.ObjectStream;
 import opennlp.tools.util.PlainTextByLineStream;
 import opennlp.tools.util.TrainingParameters;
 import org.springframework.beans.factory.annotation.Autowired;
-
 import java.io.*;
 import java.nio.charset.StandardCharsets;
-import java.util.ArrayList;
-import java.util.List;
-
 /**
  * Класс обучает модель и выдает предсказание на основе Байесовского алгоритма
  */
